@@ -2,7 +2,6 @@
 #include <string.h>
 #include <stdlib.h>
 
-// Define the structure for Users
 struct Users{
     char name[50];
     int id;
@@ -142,12 +141,11 @@ int main() {
     createFile();
     int choice=1;;
     while (choice!=5) {
-        // printf("\nMenu:\n");
         printf(" enter 1 to  create User\n");
         printf(" enter 2 to display Users\n");
         printf(" enter 3 to update User\n");
         printf(" enter 4 to delete User\n");
-        printf("5. Exit\n");
+        printf("enter  5 to Exit\n");
         printf("Enter your choice: ");
         scanf("%d", &choice);
 
