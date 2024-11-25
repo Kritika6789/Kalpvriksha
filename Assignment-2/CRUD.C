@@ -17,7 +17,7 @@ void createUser() {
     FILE *fptr = fopen("Users.txt", "a");
     FILE *temp = fopen("Users.txt", "r");
     int id;
-    printf("Enter ID: ");
+    printf("Enter id: ");
     scanf("%d", &id);
 
     Users user;
@@ -36,12 +36,12 @@ void createUser() {
         printf("ID already exists.\n");
     } else {
         getchar();
-        printf("Enter User Name: ");
+        printf("Enter user name: ");
         fgets(user.name, sizeof(user.name), stdin);
         user.name[strcspn(user.name, "\n")] = '\0';
 
         user.id = id;
-        printf("Enter Age: ");
+        printf("Enter age: ");
         scanf("%d", &user.age);
         fprintf(fptr, "%s\t%d\t%d\n", user.name, user.id, user.age);
         printf("User added successfully.\n");
@@ -53,7 +53,7 @@ void displayUsers() {
     FILE *fptr = fopen("Users.txt", "r");
     Users user;
     char line[100];
-    printf("\nUser Data:\n");
+    printf("User Data:\n");
 
     while (fgets(line, sizeof(line), fptr)) {
         sscanf(line, "%49[^\t]\t%d\t%d", user.name, &user.id, &user.age);
@@ -79,11 +79,11 @@ void updateUser() {
         if (user.id == id) {
             found = 1;
             getchar();
-            printf("Enter New Name: ");
+            printf("Enter new name: ");
             fgets(user.name, sizeof(user.name), stdin);
             user.name[strcspn(user.name, "\n")] = '\0';
 
-            printf("Enter New Age: ");
+            printf("Enter new age: ");
             scanf("%d", &user.age);
         }
         fprintf(temp, "%s\t%d\t%d\n", user.name, user.id, user.age);
@@ -139,14 +139,14 @@ void deleteUser() {
 int main() {
     
     createFile();
-    int choice=1;;
+    int choice=1;
     while (choice!=5) {
         printf(" enter 1 to  create User\n");
         printf(" enter 2 to display Users\n");
         printf(" enter 3 to update User\n");
         printf(" enter 4 to delete User\n");
-        printf("enter  5 to Exit\n");
-        printf("Enter your choice: ");
+        printf(" enter  5 to Exit\n");
+        printf(" Enter your choice: ");
         scanf("%d", &choice);
 
         switch (choice) {
@@ -159,7 +159,7 @@ int main() {
             case 4:deleteUser();
                 break;
             case 5:
-                printf("Exiting program.\n");
+                printf("Exit.\n");
                 return 0;
             default:
                 printf("Invalid choice. Please try again.\n");
